@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="ThemeResourceForDoInsideCollectionBug.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ThemeResourceForDoInsideCollectionBug"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <DependencyObjectCollection x:Key="collection">
+            <SwipeItem x:Name="textBlock2" Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+        </DependencyObjectCollection>
+        <!-- Uncomment this and comment the above to reproduce the issue -->
+        <!--<muxc:SwipeItems x:Key="collection">
+            <muxc:SwipeItem x:Name="textBlock2" Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+        </muxc:SwipeItems>-->
+    </Page.Resources>
+    <StackPanel>
+        <Button Content="Reset" Click="OnReset"/>
+        <Button Content="Apply Color" Click="OnApplyColor"/>
+        <TextBlock x:Name="textBlock1" Foreground="Red" Text="Hello world"/>
+    </StackPanel>
+</Page>
